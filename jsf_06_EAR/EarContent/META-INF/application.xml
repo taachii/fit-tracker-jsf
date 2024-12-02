@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" version="10"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/application_10.xsd">
+	<display-name>jsf_06_EAR</display-name>
+	<module>
+    <web>
+      <web-uri>jsf_06_web.war</web-uri>
+      <context-root>people</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>jsf_06_ejb.jar</ejb>
+  </module>
+</application> 

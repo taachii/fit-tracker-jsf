@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+	<f:viewParam name="p" value="#{personEditGETBB.person.idperson}"
+		converterMessage="Nieoczekiwany błąd"/>
+	<f:event type="preRenderView" listener="#{personEditGETBB.onLoad()}" />
+</f:metadata>
+
+<h:head>
+	<meta charset="utf-8"/>
+	<title>JSF 06 - EJB, bazy danych (mapowanie
+		obiektowo-relacyjne)</title>
+</h:head>
+<h:body style="background-color: #eee; margin: 0.5em;">
+
+	<p:panel toggleable="true" header="Edycja rekordu">
+
+		<h:form rendered="#{personEditBB.person != null}">
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputLabel for="p-name" value="imię:" />
+				<p:inputText id="p-name" value="#{personEditGETBB.person.name}"
+					required="true" requiredMessage="Podaj imię"
+					validatorMessage="co najwyżej 40 znaków">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<p:message for="p-name" display="icon"/>
+
+				<h:outputLabel for="p-surname" value="nazwisko:" />
+				<p:inputText id="p-surname" value="#{personEditGETBB.person.surname}"
+					required="true" requiredMessage="podaj nazwisko"
+					validatorMessage="co najwyżej 40 znaków">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<p:message for="p-surname" display="icon"/>
+
+				<h:outputLabel for="p-date" value="data ur.:" />
+				<p:inputText id="p-date" value="#{personEditGETBB.person.birthdate}"
+					required="true" requiredMessage="podaj datę urodzenia"
+					converterMessage="niepoprawny format daty (np. 15-07-2018)">
+					<f:convertDateTime pattern="dd-MM-yyyy"/>
+			    </p:inputText>
+				<p:message for="p-date" display="icon"/>
+
+			</h:panelGrid>
+
+			<p:messages id="msgs" />
+
+			<p:commandButton value="Zapisz" action="#{personEditGETBB.saveData()}"
+				style="margin-right: 1em;" update="@form" />
+
+			<p:button value="Anuluj" outcome="personList" />
+		</h:form>
+
+	</p:panel>
+
+</h:body>
+</html>

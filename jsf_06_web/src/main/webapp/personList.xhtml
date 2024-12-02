@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>JSF 06 - EJB, bazy danych (mapowanie
+		obiektowo-relacyjne)</title>
+</h:head>
+<h:body style="background-color: #eee; margin: 0.5em;">
+
+	<p:panel header="Opcje wyszukiwania" toggleable="true" collapsed="true"
+		style="margin-bottom: 1em;">
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel value="nazwisko:" />
+				<p:inputText value="#{personListBB.surname}" />
+				<p:commandButton value="Szukaj" update="form-table" />
+			</h:panelGrid>
+		</h:form>
+	</p:panel>
+
+	<p:messages />
+
+	<h:form id="form-table" style="margin-bottom:1em;">
+
+		<p:commandButton value="Dodaj nową osobę"
+			action="#{personListBB.newPerson()}" style="margin-bottom:1em;" />
+
+		<p:dataTable value="#{personListBB.list}" var="p">
+
+			<p:column priority="5">
+				<f:facet name="header">
+					<h:outputText value="imię" />
+				</f:facet>
+				<h:outputText value="#{p.name}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="nazwisko" />
+				</f:facet>
+				<h:outputText value="#{p.surname}" />
+			</p:column>
+
+			<p:column priority="4">
+				<f:facet name="header">
+					<h:outputText value="data ur." />
+				</f:facet>
+				<h:outputText value="#{p.birthdate}">
+					<f:convertDateTime pattern="dd-MM-yyyy" />
+				</h:outputText>
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="opcje" />
+				</f:facet>
+
+				<p:commandButton value="Edytuj"
+					action="#{personListBB.editPerson(p)}" />
+
+				<p:commandButton value="Usuń"
+					action="#{personListBB.deletePerson(p)}" update="@form" />
+
+				<p:button outcome="personEditGET" value="Edytuj (GET)">
+					<f:param name="p" value="#{p.idperson}" />
+				</p:button>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>
