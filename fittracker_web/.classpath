@@ -13,7 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/fittracker_ejb"/>
 	<classpathentry kind="lib" path="D:/Serwery/wildfly-33.0.2.Final/modules/system/layers/base/jakarta/faces/impl/main/jakarta.faces-4.0.7.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/fittracker_EJB"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -3,8 +3,8 @@
 	<name>fittracker_EAR</name>
 	<comment></comment>
 	<projects>
-		<project>fittracker_ejb</project>
-		<project>fittracker_web</project>
+		<project>fittracker_EJB</project>
+		<project>fittracker_WEB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -10,10 +10,6 @@ import jakarta.persistence.Query;
 
 import com.jsf.entities.User;
 
-//DAO - Data Access Object for Person entity
-//Designed to serve as an interface between higher layers of application and data.
-//Implemented as stateless Enterprise Java bean - server side code that can be invoked even remotely.
-
 @Stateless
 public class UserDAO {
 	private final static String UNIT_NAME = "jsfcourse-fitPU";
@@ -21,7 +17,7 @@ public class UserDAO {
 	@PersistenceContext(unitName = UNIT_NAME)
 	protected EntityManager em;
 	
-	public void create(User user) {
+	public void create(User user) { 
 		em.persist(user);
 	}
 	
@@ -33,13 +29,12 @@ public class UserDAO {
 		em.remove(em.merge(user));
 	}
 	
-	public User find(Object id) {
+	public User find(Integer id) {
 		return em.find(User.class, id);
 	}
 	
 	public List<User> getFullList() {
 		List<User> list = null;
-		
 		Query query = em.createQuery("select u from User u");
 		
 		try {
@@ -47,7 +42,6 @@ public class UserDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 		return list;
 	}
 	
@@ -60,13 +54,13 @@ public class UserDAO {
 		String orderby = "order by u.username asc, u.email";
 		
 		String username = (String) searchParams.get("username");
-		if(username	!= null) {
+		if(username != null) {
 			if(where.isEmpty()) {
 				where = "where ";
 			} else {
 				where += "and ";
 			}
-			where += "u.username like :username ";
+			where += "u.username like :username";
 		}
 		
 		Query query = em.createQuery(select + from + where + orderby);
@@ -80,7 +74,6 @@ public class UserDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 		return list;
 	}
 }

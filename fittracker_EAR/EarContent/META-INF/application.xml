@@ -3,14 +3,14 @@
 	xmlns="https://jakarta.ee/xml/ns/jakartaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/application_10.xsd">
-	<display-name>fittracker</display-name>
+	<display-name>fittracker_EAR</display-name>
 	<module>
     <web>
-      <web-uri>fittracker_web.war</web-uri>
+      <web-uri>fittracker_WEB.war</web-uri>
       <context-root>fittracker</context-root>
     </web>
   </module>
   <module>
-    <ejb>fittracker_ejb.jar</ejb>
+    <ejb>fittracker_EJB.jar</ejb>
   </module>
 </application> 

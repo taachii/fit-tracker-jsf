@@ -41,51 +41,35 @@ public class UserListBB {
 		this.username = username;
 	}
 	
-	public List<User> getFullList(){
+	public List<User> getFullList() {
 		return userDAO.getFullList();
 	}
-
-	public List<User> getList(){
+	
+	public List<User> getList() {
 		List<User> list = null;
 		
-		//1. Prepare search params
-		Map<String,Object> searchParams = new HashMap<String, Object>();
+		Map<String, Object> searchParams = new HashMap<String, Object>();
 		
-		if (username != null && username.length() > 0){
-			searchParams.put("surname", username);
+		if(username != null && username.length() > 0) {
+			searchParams.put("username", username);
 		}
 		
-		//2. Get list
 		list = userDAO.getList(searchParams);
-		
 		return list;
 	}
-
-	public String newUser(){
+	
+	public String newUser() {
 		User user = new User();
-		
-		//1. Pass object through session
-		//HttpSession session = (HttpSession) extcontext.getSession(true);
-		//session.setAttribute("person", person);
-		
-		//2. Pass object through flash	
 		flash.put("user", user);
-		
 		return PAGE_USER_EDIT;
 	}
-
-	public String editUser(User user){
-		//1. Pass object through session
-		//HttpSession session = (HttpSession) extcontext.getSession(true);
-		//session.setAttribute("user", user);
-		
-		//2. Pass object through flash 
+	
+	public String editUser(User user) {
 		flash.put("user", user);
-		
 		return PAGE_USER_EDIT;
 	}
-
-	public String deleteUser(User user){
+	
+	public String deleteUser(User user) {
 		userDAO.remove(user);
 		return PAGE_STAY_AT_THE_SAME;
 	}

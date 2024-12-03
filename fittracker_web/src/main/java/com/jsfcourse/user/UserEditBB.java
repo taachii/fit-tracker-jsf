@@ -19,60 +19,52 @@ import com.jsf.entities.User;
 @ViewScoped
 public class UserEditBB implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	private static final String PAGE_USER_LIST = "userList?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
-
+	
 	private User user = new User();
 	private User loaded = null;
-
+	
 	@EJB
 	UserDAO userDAO;
-
+	
 	@Inject
 	FacesContext context;
-
+	
 	@Inject
 	Flash flash;
-
-	public User getPerson() {
+	
+	public User getUser() {
 		return user;
 	}
-
+	
 	public void onLoad() throws IOException {
 		loaded = (User) flash.get("user");
-		if (loaded != null) {
+		
+		if(loaded != null) {
 			user = loaded;
 		} else {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Błędne użycie systemu", null));
-			// if (!context.isPostback()) { //possible redirect
-			// context.getExternalContext().redirect("userList.xhtml");
-			// context.responseComplete();
-			// }
 		}
-
 	}
-
+	
 	public String saveData() {
-		if (loaded == null) {
+		if(loaded == null) {
 			return PAGE_STAY_AT_THE_SAME;
 		}
-
+		
 		try {
-			if (user.getIdUser() == null) {
-				// new record
+			if(user.getIdUser() == null) {
 				userDAO.create(user);
 			} else {
-				// existing record
 				userDAO.merge(user);
 			}
-		} catch (Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
-			context.addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "wystąpił błąd podczas zapisu", null));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Wystąpił błąd podczas zapisu", null));
 			return PAGE_STAY_AT_THE_SAME;
 		}
-
 		return PAGE_USER_LIST;
 	}
 }

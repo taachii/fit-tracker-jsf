@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="fittracker_EAR">
         <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
-        <dependent-module archiveName="fittracker_ejb.jar" deploy-path="/" handle="module:/resource/fittracker_ejb/fittracker_ejb">
+        <dependent-module archiveName="fittracker_EJB.jar" deploy-path="/" handle="module:/resource/fittracker_EJB/fittracker_EJB">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="fittracker_web.war" deploy-path="/" handle="module:/resource/fittracker_web/fittracker_web">
+        <dependent-module archiveName="fittracker_WEB.war" deploy-path="/" handle="module:/resource/fittracker_WEB/fittracker_WEB">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

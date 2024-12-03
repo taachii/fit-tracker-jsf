@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>fittracker_web</name>
+	<name>fittracker_WEB</name>
 	<comment></comment>
 	<projects>
-		<project>fittracker_ejb</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
