@@ -60,7 +60,7 @@ public class UserDAO {
 			} else {
 				where += "and ";
 			}
-			where += "u.username like :username";
+			where += "u.username like :username ";
 		}
 		
 		Query query = em.createQuery(select + from + where + orderby);

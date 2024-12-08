@@ -3,6 +3,7 @@ package com.jsfcourse.user;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -16,11 +17,13 @@ import jakarta.servlet.http.HttpSession;
 import com.jsf.dao.UserDAO;
 import com.jsf.entities.User;
 
+
 @Named
 @RequestScoped
 public class UserListBB {
 	private static final String PAGE_USER_EDIT = "userEdit?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
+	private static final Logger logger = Logger.getLogger(UserListBB.class.getName());
 	
 	private String username;
 	
@@ -70,7 +73,8 @@ public class UserListBB {
 	}
 	
 	public String deleteUser(User user) {
-		userDAO.remove(user);
+		logger.info("Usuwam uzytkownika: #" + user.getIdUser() + " " + user.getUsername());
+		//userDAO.remove(user);
 		return PAGE_STAY_AT_THE_SAME;
 	}
 }
