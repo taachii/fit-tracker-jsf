@@ -74,7 +74,7 @@ public class UserListBB {
 	
 	public String deleteUser(User user) {
 		logger.info("Usuwam uzytkownika: #" + user.getIdUser() + " " + user.getUsername());
-		//userDAO.remove(user);
+		userDAO.remove(user);
 		return PAGE_STAY_AT_THE_SAME;
 	}
 }

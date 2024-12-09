@@ -37,14 +37,6 @@
           <f:validateLength maximum="40" />
         </p:inputText>
         <p:message for="u-email" display="icon"/>
-        
-         <h:outputLabel for="u-password" value="hasło:" />
-        <p:inputText id="u-password" value="#{userEditBB.user.password}"
-          required="true" requiredMessage="Podaj hasło!"
-          validatorMessage="co najwyżej 40 znaków">
-          <f:validateLength maximum="40" />
-        </p:inputText>
-        <p:message for="u-password" display="icon"/>
       </h:panelGrid>
 
       <p:messages id="msgs" />

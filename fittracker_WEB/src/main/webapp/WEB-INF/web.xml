@@ -13,7 +13,7 @@
     </context-param>
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>vela</param-value>
+        <param-value>none</param-value>
     </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
