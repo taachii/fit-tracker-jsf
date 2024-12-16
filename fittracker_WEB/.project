@@ -3,6 +3,7 @@
 	<name>fittracker_WEB</name>
 	<comment></comment>
 	<projects>
+		<project>fittracker_EJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

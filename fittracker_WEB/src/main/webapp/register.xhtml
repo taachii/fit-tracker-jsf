@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <meta charset="utf-8" />
+  <title>FitTracker - rejestracja</title>
+  <h:outputStylesheet library="css" name="control-form.css" />
+  <h:graphicImage library="img" name="favicon.png" rendered="false">
+    <f:attribute name="rel" value="icon" />
+    <f:attribute name="type" value="image/x-icon" />
+  </h:graphicImage>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</h:head>
+
+<h:body>
+  <div class="control-form-content">
+    <div class="header">
+      <h2><span>Fit</span><span class="tracker">Tracker</span><span class="side-text"> - rejestracja</span></h2>
+    </div>
+    <h:form styleClass="form-container">
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <h:inputText id="email" required="true">
+          <f:passThroughAttribute name="placeholder" value="Wprowadź email" />
+        </h:inputText>
+         <h:message for="email" styleClass="error-message" />
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Hasło:</label>
+        <h:inputSecret id="password" required="true">
+          <f:passThroughAttribute name="placeholder" value="Wprowadź hasło" />
+        </h:inputSecret>
+         <h:message for="password" styleClass="error-message" />
+      </div>
+      
+      <div class="form-group">
+        <label for="password-repeat">Hasło:</label>
+        <h:inputSecret id="password-repeat"  required="true">
+          <f:passThroughAttribute name="placeholder" value="Wprowadź ponownie hasło" />
+        </h:inputSecret>
+         <h:message for="password-repeat" styleClass="error-message" />
+      </div>
+      
+      <div class="form-actions">
+        <h:commandButton value="Zarejestruj się" action="userList.xhtml" styleClass="submit-button" />
+      </div>
+      
+      <div class="form-footer">
+        <p>Masz już konto? <a href="login.xhtml">Zaloguj się</a></p>
+      </div>
+      
+    </h:form>
+  </div>
+  <h:outputScript library="js" name="script.js"/>
+</h:body>
+</html>
